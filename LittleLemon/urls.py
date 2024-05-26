@@ -15,21 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from rest_framework import routers
-from LittleLemonAPI import views
-""" router = routers.DefaultRouter()
-router.register(r'menuitems', views.menuViewSet) """
+from rest_framework.routers import DefaultRouter 
+from restaurant.views import BookingViewSet
+from rest_framework.authtoken.views import obtain_auth_token
 
-""" urlpatterns = [
-    path('api/', include(router.urls)),
-    path('admin/', admin.site.urls),
-] """
-""" urlpatterns = [
-    path('', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls'))
-] """
+router = DefaultRouter()
+router.register(r'tables', BookingViewSet) 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/',include('LittleLemonAPI.urls'))
+   path('admin/', admin.site.urls),
+   path('restaurant/',include('restaurant.urls')),
+   path('restaurant/booking/', include(router.urls)),
+   path('api-token-auth/', obtain_auth_token),
+
+   path('auth/', include('djoser.urls')),
+   path('auth/', include('djoser.urls.authtoken'))
 ]
