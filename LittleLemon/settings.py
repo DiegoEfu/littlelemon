@@ -37,9 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
-    'LittleLemonAPI',
     'rest_framework.authtoken',
+    'rest_framework',
+    'djoser',
+    'LittleLemonAPI',
     'restaurant',
 ]
 
@@ -140,6 +141,7 @@ REST_FRAMEWORK = {
 
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
     ),
 
 }
@@ -157,3 +159,5 @@ DATABASES = {
     }
  }
 }
+
+DJOSER={"USER_ID_FIELD":"username"}
