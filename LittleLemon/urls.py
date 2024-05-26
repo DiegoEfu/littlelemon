@@ -22,5 +22,5 @@ router.register(r'menuitems', views.menuViewSet) """
 
 urlpatterns = [
    path('admin/', admin.site.urls),
-   path('restaurant/', include('restaurant.urls'))
+   path('restaurant/',include('restaurant.urls'))
 ]
