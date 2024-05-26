@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'rest_framework',
     'djoser',
-    'LittleLemonAPI',
     'restaurant',
 ]
 
